@@ -183,3 +183,55 @@
         transition: none;
     }
 }
+\n
+/* Bootstrap/mobile-first UI layer */
+:root {
+    --app-bg: #0f172a;
+    --app-surface: #1e293b;
+    --app-surface-deep: #020617;
+    --app-border: #334155;
+    --app-primary: #6366f1;
+}
+body { overflow-x: hidden; }
+.app-header { position: sticky; top: 0; z-index: 900; }
+.app-header h1 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-header-actions { max-width: 520px; }
+.app-control { min-width: 220px; }
+.app-convert-btn { min-height: 38px; white-space: nowrap; }
+.btn-primary { --bs-btn-bg:#4f46e5; --bs-btn-border-color:#4f46e5; --bs-btn-hover-bg:#6366f1; --bs-btn-hover-border-color:#6366f1; }
+.form-select:focus, .form-control:focus { border-color:#6366f1; box-shadow:0 0 0 .2rem rgba(99,102,241,.2); }
+.table { --bs-table-bg: transparent; --bs-table-color: #cbd5e1; }
+.nav-tabs-mobile { scrollbar-width: thin; }
+button, select, input, textarea { touch-action: manipulation; }
+#graphContainer { min-height: 320px; }
+#graphSvgOutput { min-width: 0; }
+img, svg { max-width: 100%; }
+@media (max-width: 991.98px) {
+    .app-header { position: relative; }
+    .app-header-actions { max-width: none; }
+    .app-control { flex: 1 1 auto; min-width: 0; }
+    .app-convert-btn { flex: 0 0 auto; }
+    #graphContainer { min-height: 300px; }
+}
+@media (max-width: 575.98px) {
+    .app-header { padding: .75rem !important; }
+    .app-header h1 { font-size: .95rem; }
+    .app-header p { display: none; }
+    .app-header .bg-indigo-600 { padding: .55rem !important; font-size: .9rem !important; }
+    .app-header-actions { flex-direction: column; align-items: stretch !important; width: 100%; }
+    .app-control, .app-convert-btn { width: 100%; }
+    main { padding-top: .5rem !important; }
+    section { border-radius: .75rem !important; }
+    #grammarInput { min-height: 220px; height: 220px !important; }
+    #graphContainer { min-height: 260px; padding: .5rem !important; }
+    .tab-btn { flex: 0 0 auto; white-space: nowrap; padding: .65rem .75rem !important; }
+    .tab-content { min-width: 0; }
+    .tab-content > * { min-width: 0; }
+    .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+    .pwa-install-prompt { left: 12px; right: 12px; bottom: 12px; grid-template-columns: auto 1fr; }
+    .pwa-install-action { grid-column: 2; width: 100%; }
+    .pwa-install-close { position: absolute; top: 8px; right: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
