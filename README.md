@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <a href="https://llg-to-rifxopxv8-yash-dac.vercel.app/">Live Demo</a> ·
-  <a href="https://github.com/1Y20ash/LLG-to-FA">Repository</a>
+  <a href="https://llg-to-rifxopxv8-yash-dac.vercel.app/" target="_blank">🌐 Live Demo</a> ·
+  <a href="https://github.com/1Y20ash/LLG-to-FA">📦 Repository</a>
 </p>
 
 ---
@@ -24,6 +24,8 @@ It also provides interactive visualization, mathematical proof information, stri
 ### 🌐 Live Application
 
 **[Open LLG → FA Converter](https://llg-to-rifxopxv8-yash-dac.vercel.app/)**
+
+**Live URL:** https://llg-to-rifxopxv8-yash-dac.vercel.app/
 
 ---
 
@@ -187,7 +189,7 @@ Windows:
 
 ```powershell
 python -m venv venv
-venv\Scripts\activate
+venv\\Scripts\\activate
 ```
 
 macOS / Linux:
