@@ -409,4 +409,59 @@ document.addEventListener('DOMContentLoaded', () => {
     grammarInput.value = "S -> S b | A a | eps\nA -> A b | S a";
     simInputString.value = "a b a";
     convertGrammar();
+    // PWA installation and service worker — mirrors the SmartDoc implementation.
+    const installPrompt = document.getElementById('installPrompt');
+    const installButton = document.getElementById('installButton');
+    const installClose = document.getElementById('installClose');
+    let deferredInstallPrompt = null;
+
+    function isStandalone() {
+        return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    }
+
+    function hideInstallPrompt() {
+        if (!installPrompt) return;
+        installPrompt.classList.remove('show');
+        installPrompt.setAttribute('aria-hidden', 'true');
+    }
+
+    function showInstallPrompt() {
+        if (!installPrompt || isStandalone() || sessionStorage.getItem('llgFaInstallPromptShown') === '1') return;
+        installPrompt.classList.add('show');
+        installPrompt.setAttribute('aria-hidden', 'false');
+        sessionStorage.setItem('llgFaInstallPromptShown', '1');
+    }
+
+    window.addEventListener('beforeinstallprompt', event => {
+        event.preventDefault();
+        deferredInstallPrompt = event;
+        showInstallPrompt();
+    });
+
+    installButton?.addEventListener('click', async () => {
+        if (!deferredInstallPrompt) {
+            hideInstallPrompt();
+            return;
+        }
+        deferredInstallPrompt.prompt();
+        await deferredInstallPrompt.userChoice;
+        deferredInstallPrompt = null;
+        hideInstallPrompt();
+    });
+
+    installClose?.addEventListener('click', hideInstallPrompt);
+
+    window.addEventListener('appinstalled', () => {
+        deferredInstallPrompt = null;
+        hideInstallPrompt();
+    });
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker
+                .register('/static/service-worker.js', { scope: '/' })
+                .catch(error => console.warn('LLG-to-FA service worker registration failed:', error));
+        });
+    }
+
 });
