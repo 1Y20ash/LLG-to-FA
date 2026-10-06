@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://llg-to-rifxopxv8-yash-dac.vercel.app/" target="_blank">🌐 Live Demo</a> ·
+  <a href="https://llg-to-fa.vercel.app/" target="_blank">🌐 Live Demo</a> ·
   <a href="https://github.com/1Y20ash/LLG-to-FA">📦 Repository</a>
 </p>
 
