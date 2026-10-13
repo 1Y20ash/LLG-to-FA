@@ -25,8 +25,7 @@ It also provides interactive visualization, mathematical proof information, stri
 
 **[Open LLG → FA Converter](https://llg-to-fa.vercel.app/)**
 
-**Live URL:** https://llg-to-rifxopxv8-yash-dac.vercel.app/
-
+**Live URL:** https://llg-to-fa.vercel.app/
 ---
 
 ## ✨ Features
